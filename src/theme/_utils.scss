@@ -1,0 +1,9 @@
+$font-weight-regular: 600;
+$font-weight-thin: 400;
+
+@mixin card {
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgba(91, 137, 164, 0.2);
+  background-color: #ffffff;
+  box-sizing: border-box;
+}

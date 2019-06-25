@@ -1,0 +1,96 @@
+@import '../../theme/index.scss';
+
+.app__filter__top {
+  padding: 15px 15px 0 15px;
+
+  &__buttons {
+    display: flex;
+    margin-top: 12px;
+
+    &__item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      background-color: $white-default;
+      border: 1px solid $grey-brightness;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: $font-weight-regular;
+      line-height: 1.83;
+      letter-spacing: 0.5px;
+      color: $blue-default;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease-out;
+      position: relative;
+
+      &:first-child:after,
+      &:first-child {
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+      }
+
+      &:last-child:after,
+      &:last-child {
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &:not(.active):hover {
+        z-index: 2;
+        background-color: #f2fcff;
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 1px solid $blue-default;
+        }
+      }
+
+      &:nth-child(2):not(.active) {
+        border-right: none;
+        border-left: 0;
+        &:hover:after {
+          left: -1px;
+          width: 100%;
+        }
+      }
+
+      &.active {
+        z-index: 2;
+        border: 1px solid $blue-default;
+        background-color: $blue-default;
+        color: $white-default;
+
+        &:nth-child(2) {
+          border-left: none;
+          border-right: none;
+
+          &:before,
+          &:after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: calc(100% + 2px);
+            top: -1px;
+            background-color: $blue-default;
+          }
+          &:after {
+            right: -1px;
+          }
+
+          &:before {
+            left: -1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+:focus {
+  outline: none;
+}

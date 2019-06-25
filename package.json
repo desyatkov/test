@@ -1,0 +1,75 @@
+{
+  "name": "re-store",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-react": "^7.13.0",
+    "express": "^4.17.1",
+    "express-pino-logger": "^4.0.0",
+    "node-env-run": "^3.0.2",
+    "nodemon": "^1.19.1",
+    "npm-run-all": "^4.1.5",
+    "pino-colada": "^1.4.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dayjs": "^1.8.14",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-app-polyfill": "^1.0.1",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "react-transition-group": "^4.1.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "request": "^2.88.0",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node-env-run server --exec nodemon | pino-colada",
+    "dev": "run-p server start"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 version",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "ie 9-11",
+      "last 2 version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint",
+      "pretty-quick — staged",
+      "git add"
+    ]
+  },
+  "proxy": "http://localhost:3001"
+}
